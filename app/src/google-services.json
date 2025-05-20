@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "416443599711",
+    "project_id": "book-top-63ba3",
+    "storage_bucket": "book-top-63ba3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416443599711:android:d309586e77a8ba9ef684ea",
+        "android_client_info": {
+          "package_name": "com.example.booktopprojekt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDXqZmE15rFtnXYJYOOpdIzrMY184wzU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
