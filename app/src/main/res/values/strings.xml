@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">BookTop projekt</string>
+    <string name="app_name">BookTop</string>
+    <string name="new_user_signup">Nie masz konta? <b>Zarejestruj się</b></string>
 </resources>

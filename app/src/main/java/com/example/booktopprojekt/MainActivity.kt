@@ -1,7 +1,6 @@
 package com.example.booktopprojekt
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -18,13 +17,13 @@ class   MainActivity : AppCompatActivity() {
 
         //handle click, login
         binding.loginBtn.setOnClickListener{
-            //TODO
+            startActivity(Inten(this, LoginActivity::class.java))
         }
 
         //handle click, skip, continue to main
 
         binding.skipBtn.setOnClickListener{
-            //TODO
+            startActivity(Inten(this, DashboardUserActivity::class.java))
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

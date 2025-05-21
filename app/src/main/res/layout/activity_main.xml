@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/shape_button01"
-        android:text="Logowanie"
+        android:text="Zaloguj się"
         android:layout_above="@id/skipBtn"
         android:textColor="@color/white"/>
     <Button
