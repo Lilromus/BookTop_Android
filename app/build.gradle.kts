@@ -44,18 +44,23 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // Use the Firebase BOM to manage all Firebase versions
     implementation(platform("com.google.firebase:firebase-bom:32.1.1"))
+    // Only declare firebase-analytics-ktx once (the BOM will pick the correct version)
     implementation("com.google.firebase:firebase-analytics-ktx")
+
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.firebase.analytics)
+
+    // If you still need Auth, Realtime Database, Crashlytics, keep those:
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.firebase.crashlytics)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

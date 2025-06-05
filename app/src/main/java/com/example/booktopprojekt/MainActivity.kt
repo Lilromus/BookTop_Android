@@ -1,5 +1,5 @@
 package com.example.booktopprojekt
-
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,13 +17,13 @@ class   MainActivity : AppCompatActivity() {
 
         //handle click, login
         binding.loginBtn.setOnClickListener{
-            startActivity(Inten(this, LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         //handle click, skip, continue to main
 
         binding.skipBtn.setOnClickListener{
-            startActivity(Inten(this, DashboardUserActivity::class.java))
+            startActivity(Intent(this, DashboardUserActivity::class.java))
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

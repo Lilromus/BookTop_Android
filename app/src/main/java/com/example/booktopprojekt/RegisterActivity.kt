@@ -123,7 +123,7 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["timestamp"] = timestamp
 
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(uid!!).setValue(hashMap)
+        ref.child(uid).setValue(hashMap)
             .addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Konto zostało stworzone...", Toast.LENGTH_SHORT).show()
