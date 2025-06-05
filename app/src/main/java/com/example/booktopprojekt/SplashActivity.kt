@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             checkUser()
-        }, 2_000)
+        }, 2000)
     }
 
     private fun checkUser()
