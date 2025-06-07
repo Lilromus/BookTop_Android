@@ -44,6 +44,34 @@
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"/>
     </RelativeLayout>
+    
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below = "@id/toolbarRl"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableStart="@drawable/ic_search_grey"
+        android:hint="Wyszukaj"
+        android:padding="10dp"
+        android:textColorHint="@color/gray01"/>
+
+    <!--Categories-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchEt"
+        android:layout_above="@id/bottomLL"
+        android:layout_margin = "5dp"
+        tools:listitem="@layout/row_category"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+
 
     <LinearLayout
         android:id="@+id/bottomLL"

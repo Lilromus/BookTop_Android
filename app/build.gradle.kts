@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.firebase.crashlytics)
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

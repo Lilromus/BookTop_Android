@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -71,6 +70,10 @@ class LoginActivity : AppCompatActivity() {
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
             Toast.makeText(this, "Nieprawidłowy email", Toast.LENGTH_SHORT).show();
+        }
+        else if(email.isEmpty())
+        {
+            Toast.makeText(this, "Prosze wpisać swój email", Toast.LENGTH_SHORT).show();
         }
         else if(password.isEmpty())
         {

@@ -135,4 +135,6 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Błąd podczas zapisywanie dane o użytkowniku przez ${e.message}", Toast.LENGTH_SHORT).show();
             }
     }
+
+
 }
