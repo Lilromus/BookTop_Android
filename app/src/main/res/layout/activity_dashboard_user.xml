@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,43 +9,71 @@
     android:background="@drawable/back01"
     tools:context=".DashboardUserActivity">
 
-
-    <!--Toolbar-->
+    <!-- Toolbar -->
     <RelativeLayout
         android:id="@+id/toolbarRl"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/shape_toolbar_02">
-        
+        android:background="@drawable/shape_toolbar_02"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
             android:text="Dashboard User"
             android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/titleTv"
+            android:layout_centerHorizontal="true"
             android:text="admin@example.com"
-            android:textColor="@color/white"/>
-        
+            android:textColor="@color/white" />
+
         <ImageButton
             android:id="@+id/logoutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:src="@drawable/ic_logout_white"
-            android:layout_alignParentEnd="true"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:contentDescription="Logout"
+            android:padding="12dp"/>
     </RelativeLayout>
 
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarRl"
+        app:layout_constraintBottom_toTopOf="@id/addPdfFab"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Floating Action Button: Add PDF -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPdfFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pdf_add_white"
+        app:tint="@color/white"
+        app:fabCustomSize="50dp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Dodaj PDF" />
 </androidx.constraintlayout.widget.ConstraintLayout>
