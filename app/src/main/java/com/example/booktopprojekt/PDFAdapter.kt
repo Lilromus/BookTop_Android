@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.booktopprojekt.PDFModel
 
 class PDFAdapter(private val pdfList: List<PDFModel>) :
     RecyclerView.Adapter<PDFAdapter.PDFViewHolder>() {
@@ -33,7 +35,11 @@ class PDFAdapter(private val pdfList: List<PDFModel>) :
                 setDataAndType(pdf.uri, "application/pdf")
                 flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
             }
-            holder.itemView.context.startActivity(intent)
+            try {
+                holder.itemView.context.startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(holder.itemView.context, "Nie można otworzyć pliku PDF", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
