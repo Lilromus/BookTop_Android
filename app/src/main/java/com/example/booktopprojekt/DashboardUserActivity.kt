@@ -3,6 +3,7 @@ package com.example.booktopprojekt
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -54,8 +55,12 @@ class DashboardUserActivity : AppCompatActivity() {
 
     private val pdfPickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let {
-
-            contentResolver.takePersistableUriPermission(it,Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            try {
+                contentResolver.takePersistableUriPermission(it, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            } catch (e: SecurityException) {
+                e.printStackTrace()
+                Toast.makeText(this, "Brak uprawnień do pliku PDF. Nie można go zapisać.", Toast.LENGTH_SHORT).show()
+            }
 
             val fileName = getFileNameFromUri(it)
             val metadataList = loadPdfMetadata()
@@ -74,9 +79,10 @@ class DashboardUserActivity : AppCompatActivity() {
 
             pdfList.add(PDFModel(title, description, thumbnailResId, it.toString()))
             adapter.notifyItemInserted(pdfList.size - 1)
-            savePdfList()//Zapisac ksiazke
+            savePdfList()
         }
     }
+
 
     private fun getFileNameFromUri(uri: Uri): String {
         var result = "Nowy PDF"
@@ -111,13 +117,14 @@ class DashboardUserActivity : AppCompatActivity() {
     }
 
     private fun savePdfList() {
+        //zapisanie listy ksiazek
         val prefs = getSharedPreferences("pdf_prefs", MODE_PRIVATE)
         val editor = prefs.edit()
         val gson = com.google.gson.Gson()
         val json = gson.toJson(pdfList)
         editor.putString("pdf_list", json)
-        editor.apply()
     }
+
 
 
     private fun checkUser()
